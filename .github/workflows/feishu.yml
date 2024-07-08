@@ -11,6 +11,8 @@ on:
     types: [created, edited, deleted]
   pull_request_target:
     types: [assigned, opened, synchronize, reopened]
+  push:
+    branch: ["main"]
 
 jobs:
   send-event:
