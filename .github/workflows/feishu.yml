@@ -19,7 +19,7 @@ jobs:
     name: Webhook
     runs-on: ubuntu-latest
     steps:
-      - uses: Match-Yang/feishu-bot-webhook-action@main
+      - uses: feishu-bot-webhook-action@main
         with:
           webhook: ${{ secrets.FEISHU_BOT_WEBHOOK }}
           signkey: ${{ secrets.FEISHU_BOT_SIGNKEY }}
