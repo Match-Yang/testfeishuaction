@@ -1,0 +1,23 @@
+name: feishu bot
+
+on:
+  public:
+  pull_request:
+    branches: ["main"]
+    types: [opened, reopened]
+  pull_request_review:
+    types: [edited, dismissed, submitted]
+  pull_request_review_comment:
+    types: [created, edited, deleted]
+  pull_request_target:
+    types: [assigned, opened, synchronize, reopened]
+
+jobs:
+  send-event:
+    name: Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Match-Yang/feishu-bot-webhook-action
+        with:
+          webhook: ${{ secrets.FEISHU_BOT_WEBHOOK }}
+          signkey: ${{ secrets.FEISHU_BOT_SIGNKEY }}
